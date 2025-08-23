@@ -1,0 +1,9 @@
+streamlit
+pandas
+numpy
+mftool
+googlesearch-python
+matplotlib
+numpy-financial
+scipy
+pyxirr
