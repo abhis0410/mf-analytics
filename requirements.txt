@@ -7,3 +7,4 @@ matplotlib
 numpy-financial
 scipy
 pyxirr
+st-pages
