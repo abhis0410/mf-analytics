@@ -1,11 +1,42 @@
 [
-  {
-    "scheme_code": "120841",
-    "scheme_name": "quant Mid Cap Fund - Growth Option - Direct Plan",
-    "amount_invested": 4999.75,
-    "nav": 273.3525,
-    "nav_date": "2024-06-18",
-    "date_of_transaction": "2024-06-18",
-    "investment_id": "8a49cfb0-fa92-4cb9-a46e-faa9b8212950"
-  }
+    {
+        "scheme_code": "120828",
+        "scheme_name": "quant Small Cap Fund - Growth Option - Direct Plan",
+        "amount_invested": 5000,
+        "units_bought": 18.587,
+        "nav": 268.9877,
+        "nav_date": "2025-08-29",
+        "date_of_transaction": "2025-08-29",
+        "investment_id": "381ce95e-ffc8-421f-a8a8-7c78d5aebf5c"
+    },
+    {
+        "scheme_code": "147794",
+        "scheme_name": "Motilal Oswal Nifty 50 Index Fund - Direct plan - Growth",
+        "amount_invested": 1000,
+        "units_bought": 47.185,
+        "nav": 21.1922,
+        "nav_date": "2025-08-28",
+        "date_of_transaction": "2025-08-28",
+        "investment_id": "2c7bed29-bf90-4074-b495-d4232e331b47"
+    },
+    {
+        "scheme_code": "147794",
+        "scheme_name": "Motilal Oswal Nifty 50 Index Fund - Direct plan - Growth",
+        "amount_invested": 5000,
+        "units_bought": 236.639,
+        "nav": 21.1282,
+        "nav_date": "2025-08-29",
+        "date_of_transaction": "2025-08-29",
+        "investment_id": "1123a103-f4bf-45f3-8809-447d942c7bf7"
+    },
+    {
+        "scheme_code": "122639",
+        "scheme_name": "Parag Parikh Flexi Cap Fund - Direct Plan - Growth",
+        "amount_invested": 1000,
+        "units_bought": 10.98,
+        "nav": 91.0737,
+        "nav_date": "2025-08-29",
+        "date_of_transaction": "2025-08-29",
+        "investment_id": "e9ce8c8f-7714-4e1a-b097-eee962b5c726"
+    }
 ]
