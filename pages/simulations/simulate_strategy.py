@@ -8,13 +8,13 @@ from streamlit_components.metrics import show_simulation_metrics
 
 from src.mf_simulator import MFSimulator
 from utils.data_loader import SimulationManager
-
+import random, string
 
 
 def add_save_simulation_button(params):
     desc = st.text_input("Enter a description for the simulation:")
     if st.button("Save Simulation"):
-        params['id'] = str(uuid.uuid4())
+        params['id'] = str(''.join(random.choices(string.ascii_letters + string.digits, k=8)))
         params['run_time'] = pd.Timestamp.now().strftime("%Y-%m-%d %I:%M:%S %p")
         params['description'] = desc or "No description provided"
 
@@ -130,7 +130,7 @@ def main():
     add_both_favourites_and_blacklist_buttons(scheme_code, scheme_name)
     
     # write on/off button for simulate monthly, or simulate weekly
-    simulation_frequency = st.radio("Select Simulation Frequency", ("Weekly", "Monthly"), index=1)
+    simulation_frequency = st.radio("Select Simulation Frequency", ("Weekly", "Monthly"), index=0)
     st.divider()
     
     params = {
@@ -150,6 +150,4 @@ def main():
     add_save_simulation_button(params)
 
 if __name__ == "__main__":
-    st.title("Mutual Fund Strategy Simulator")
-
     main()

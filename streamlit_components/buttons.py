@@ -4,7 +4,7 @@ from utils.data_loader import FavouritesManager, BlacklistManager
 
 def add_favourites_button(scheme_code, scheme_name):
     favourite_manager = FavouritesManager()
-    favs = favourite_manager.load_favourites()
+    favs = favourite_manager.load_data()
     if any(f["scheme_code"] == scheme_code for f in favs):
         if st.button("Remove from Favourites"):
             favourite_manager.remove_favourite(scheme_code)
@@ -20,7 +20,7 @@ def add_favourites_button(scheme_code, scheme_name):
 
 def add_blacklist_button(scheme_code, scheme_name):
     blacklist_manager = BlacklistManager()
-    blacklists = blacklist_manager.load_blacklists()
+    blacklists = blacklist_manager.load_data()
     if any(b["scheme_code"] == scheme_code for b in blacklists):
         if st.button("Remove from Blacklist"):
             blacklist_manager.remove_blacklist(scheme_code)

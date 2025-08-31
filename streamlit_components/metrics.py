@@ -48,6 +48,22 @@ def show_simulation_metrics(
         end_date=end_date
     )
 
+
+def show_investment_metrics(metrics):
+    st.subheader("Investment Metrics")
+    col1, col2, col3, col4 = st.columns(4)
+
+    col1.metric(label="💰 Total Invested", value=f"₹{metrics['total_invested']:,.2f}")
+    col2.metric(label="📈 Current Value", value=f"₹{metrics['final_value']:,.2f}")
+    col3.metric(label="💸 Profit", value=f"₹{metrics['profit']:,.2f}")
+    col4.metric(label="📉 ROI", value=f"{metrics['roi']:.2f}%")
+
+    col1.metric(label="📊 XIRR", value=f"{metrics['xirr']:.2f}%")
+    col2.metric(label="📦 Total Units", value=f"{metrics['total_units']:,.2f}")
+    col3.metric(label="📅 Latest NAV", value=f"₹{metrics['latest_nav']:,.2f}")
+    col4.metric(label="📅 Average NAV", value=f"{metrics['average_nav']:.2f}")
+
+
 def display_scheme_details(scheme_code):
     scheme_obj = MFScheme(scheme_code)
     scheme_details = scheme_obj.get_details()
