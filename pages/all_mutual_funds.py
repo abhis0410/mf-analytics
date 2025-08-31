@@ -61,7 +61,4 @@ def main():
 
 
 if __name__ == "__main__":
-    # st.set_page_config(page_title="All Mutual Funds", layout="wide")
-    # st.title("📈 All Mutual Funds")
-    
     main()
