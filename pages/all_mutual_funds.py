@@ -22,12 +22,12 @@ def main():
     )
     
     favourites_manager_obj = FavouritesManager()
-    favourites_df = pd.DataFrame(favourites_manager_obj.load_favourites())
+    favourites_df = pd.DataFrame(favourites_manager_obj.load_data())
     favourites = favourites_df['scheme_name'].tolist() if not favourites_df.empty else []
 
 
     blacklist_manager_obj = BlacklistManager()
-    blacklists_df = pd.DataFrame(blacklist_manager_obj.load_blacklists())
+    blacklists_df = pd.DataFrame(blacklist_manager_obj.load_data())
     blacklists = blacklists_df['scheme_name'].tolist() if not blacklists_df.empty else []
 
 
@@ -61,7 +61,7 @@ def main():
 
 
 if __name__ == "__main__":
-    st.set_page_config(page_title="All Mutual Funds", layout="wide")
-    st.title("📈 All Mutual Funds")
+    # st.set_page_config(page_title="All Mutual Funds", layout="wide")
+    # st.title("📈 All Mutual Funds")
     
     main()

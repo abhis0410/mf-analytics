@@ -1,0 +1,48 @@
+[[pages]]
+path = "pages/all_mutual_funds.py"
+name = "All Mutual Funds"
+icon = "📈"
+
+[[pages]]
+path = "pages/watchlist.py"
+name = "Watchlist"
+icon = "👀"
+
+[[pages]]
+path = "pages/mf_details.py"
+name = "Mutual Fund Details"
+icon = "📝"
+
+
+[[pages]]
+name = "Simulations"
+icon = "🎯"
+is_section = true
+
+[[pages]]
+path = "pages/simulations/simulate_strategy.py"
+name = "Simulate Strategy"
+icon = "⚡"
+
+[[pages]]
+path = "pages/simulations/saved_simulations.py"
+name = "Saved Simulations"
+icon = "💾"
+
+
+[[pages]]
+name = "Investments"
+icon = "💰"
+is_section = true
+
+[[pages]]
+path = "pages/investments/add_or_delete_investment.py"
+name = "Add/Delete Investment"
+icon = "➕"
+
+[[pages]]
+path = "pages/investments/my_investments.py"
+name = "My Investments"
+icon = "📂"
+
+

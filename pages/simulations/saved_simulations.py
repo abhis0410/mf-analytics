@@ -51,13 +51,13 @@ def show_dip_factor_section(params):
             CONSTANTS.LUMPSUM_PER_WEEK if params['frequency'].lower() == 'weekly'
             else CONSTANTS.LUMPSUM_PER_MONTH
         )
-        x = st.number_input("Enter your lumpsum balance", value=CONSTANTS.LUMPSUM_PER_WEEK)
+        x = st.number_input("Enter your lumpsum balance", value=default_lumpsum)
     with col3:
         st.metric(label="Possible Investment", value=f"{dip_factor * x:.2f}")
 
 def show_saved_simulations(width):
     sim_manager = SimulationManager()
-    saved_sims = sim_manager.load_saved_simulations()
+    saved_sims = sim_manager.load_data()
 
     df_sims = pd.DataFrame(
         saved_sims,
@@ -86,7 +86,7 @@ def show_saved_simulations(width):
 
 
     if st.button("Delete Simulation"):
-        sim_manager.delete_simulation(selected_sim)
+        sim_manager.delete_simulation(selected_sim['id'])
         st.success("Simulation deleted successfully.")
         time.sleep(1)
         st.rerun()
@@ -98,7 +98,7 @@ def main():
     
     # Load saved simulations
     sim_manager = SimulationManager()
-    saved_sims = sim_manager.load_saved_simulations()
+    saved_sims = sim_manager.load_data()
 
     if not saved_sims:
         st.info("No saved simulations found. Please save a simulation first.")
@@ -111,5 +111,4 @@ def main():
     
 
 if __name__ == "__main__":
-    st.title("Saved Simulations")
     main()

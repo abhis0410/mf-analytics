@@ -57,12 +57,17 @@ class LineChartPlotter:
         )
 
         ymin, ymax = df_melt["Value"].min(), df_melt["Value"].max()
-        pad = (ymax - ymin or 1) * 0.2
-        domain = [ymin - pad, ymax + pad]
+        y_pad = (ymax - ymin or 1) * 0.2
+        y_domain = [ymin - y_pad, ymax + y_pad]
+
+        # define padded x-axis domain
+        x_min, x_max = df_melt["Date"].min(), df_melt["Date"].max()
+        x_pad = (x_max - x_min) * 0.01
+        x_domain = [x_min - x_pad, x_max + x_pad]
 
         line = alt.Chart(df_melt).mark_line().encode(
-            x="Date:T",
-            y=alt.Y("Value:Q", scale=alt.Scale(domain=domain)),
+            x=alt.X("Date:T", scale=alt.Scale(domain=x_domain)),
+            y=alt.Y("Value:Q", scale=alt.Scale(domain=y_domain)),
             color=alt.Color(
                 "Metric:N",
                 legend=alt.Legend(
@@ -72,9 +77,12 @@ class LineChartPlotter:
                 )
             ),
             tooltip=["Date:T", "Metric:N", alt.Tooltip("Value:Q", format=".2f")]
+        ).properties(
+            width=1500,
+            height=400,
         )
 
-        points = line.mark_circle(size=60).encode(
+        points = line.mark_point(size=60).encode(
             opacity=alt.condition(hover, alt.value(1), alt.value(0))
         ).add_params(hover)
 
@@ -95,6 +103,19 @@ class LineChartPlotter:
         ).transform_filter(hover)
 
         chart = (line + points + text + vline + hline).interactive()
+        chart = (
+            chart
+            .configure_view(stroke=None)
+            .configure_axis(
+                labelFontSize=12,
+                titleFontSize=14,
+                labelLimit=80
+            )
+            .configure(
+                padding={"left": 60, "right": 20, "top": 20, "bottom": 30}  # force equal margins
+            )
+        )
+                
         st.altair_chart(chart, use_container_width=True)
 
 

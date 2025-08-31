@@ -5,9 +5,9 @@ from config.page_mapping import PAGE_MAPPING
 def show_favourites():
     widths = [1, 4.5, 1, 1, 1, 1]
 
-    st.header("⭐ My Favourite Schemes")
+    st.subheader("⭐ My Favourite Schemes")
     favourites_manager_obj = FavouritesManager()
-    favs = favourites_manager_obj.load_favourites()
+    favs = favourites_manager_obj.load_data()
     st.caption(f"Total favourites: {len(favs)}")
     if not favs:
         st.info("You have no favourites yet. Go to 'All Mutual Funds' to add some.")
@@ -38,23 +38,23 @@ def show_favourites():
             st.switch_page(PAGE_MAPPING["MF_DETAILS"])
         
         
-        if col5.button("👁️", key=f"view_investments_{fav['scheme_code']}"):
-            st.session_state['selected_scheme_name'] = fav['scheme_name']
-            st.session_state['selected_scheme_code'] = fav['scheme_code']
-            st.switch_page(PAGE_MAPPING["MY_INVESTMENTS"])
-        
-        if col6.button("➕", key=f"add_investment_{fav['scheme_code']}"):
+        if col5.button("➕", key=f"add_investments_{fav['scheme_code']}"):
             st.session_state['selected_scheme_name'] = fav['scheme_name']
             st.session_state['selected_scheme_code'] = fav['scheme_code']
             st.switch_page(PAGE_MAPPING["ADD_DELETE_INVESTMENTS"])
+
+        if col6.button("👁️", key=f"view_investment_{fav['scheme_code']}"):
+            st.session_state['selected_scheme_name'] = fav['scheme_name']
+            st.session_state['selected_scheme_code'] = fav['scheme_code']
+            st.switch_page(PAGE_MAPPING["MY_INVESTMENTS"])
 
     return
 
 def show_blacklist():
     widths = [1.5, 4, 1, 1]
-    st.header("🚫 My Blacklist Schemes")
+    st.subheader("🚫 My Blacklist Schemes")
     blacklists_manager_obj = BlacklistManager()
-    blacklisted = blacklists_manager_obj.load_blacklists()
+    blacklisted = blacklists_manager_obj.load_data()
 
     st.caption(f"Total Blacklists: {len(blacklisted)}")
     if not blacklisted:
@@ -85,7 +85,7 @@ def show_blacklist():
 def main():
     st.set_page_config(page_title="Watchlist", page_icon="👀")
 
-    # Table header
+    st.divider()
     show_favourites()
     st.divider()
     show_blacklist()

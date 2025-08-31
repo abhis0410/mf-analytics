@@ -65,7 +65,7 @@ class MFScheme:
             })
             df = pd.concat([new_row.to_frame().T, df], ignore_index=True)
 
-        df["date"] = pd.to_datetime(df["date"], dayfirst=True, errors="coerce")
+        df["date"] = pd.to_datetime(df["date"], dayfirst=True, errors="coerce", format="%Y-%m-%d")
         df = df.assign(
             day=df["date"].dt.day_name(),
             month=df["date"].dt.month_name(),
@@ -125,13 +125,12 @@ class MFScheme:
                 - None if no NAV data exists before the given date.
         """
         df = self.get_nav_data()
-        date = pd.to_datetime(date)
-        
+        date = pd.to_datetime(date, format="%Y-%m-%d")
+
         df_filtered = df[df["date"] <= date]
         if df_filtered.empty:
             return None
 
         # Get the most recent NAV before or on the target date
         row = df_filtered.sort_values("date", ascending=False).iloc[0]
-        return row["date"], row["nav"]
-
+        return pd.to_datetime(row["date"]).date(), row["nav"]
