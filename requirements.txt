@@ -8,3 +8,4 @@ numpy-financial
 scipy
 pyxirr
 st-pages
+plotly
