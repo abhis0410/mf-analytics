@@ -44,6 +44,7 @@ class MFSimulator:
             "profit": detail_dict['final_value'] - detail_dict['total_invested'],
             "roi": ((detail_dict['final_value'] - detail_dict['total_invested']) / 
                     detail_dict['total_invested'] * 100) if detail_dict['total_invested'] != 0 else 0,
+            "average_nav" : detail_dict['final_value'] / detail_dict['total_units'] if detail_dict['total_units'] != 0 else 0
         }
         return {**detail_dict, **add_ons}
 
