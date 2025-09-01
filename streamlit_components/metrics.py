@@ -21,6 +21,7 @@ def show_simulation_metrics(
     col1.metric(label="📊 XIRR", value=f"{final_metrics['xirr']:.2f}%")
     col2.metric(label="📦 Total Units", value=f"{final_metrics['total_units']:,.2f}")
     col3.metric(label="📅 Latest NAV", value=f"₹{final_metrics['latest_nav']:,.2f}")
+    col4.metric(label="⚖️ Average NAV", value=f"₹{final_metrics['average_nav']:,.2f}")
 
     # Detailed Simulation Data
     st.subheader("Detailed Simulation Data")
