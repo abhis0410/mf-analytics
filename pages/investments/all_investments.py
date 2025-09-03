@@ -5,8 +5,11 @@ from utils.data_loader import MyInvestmentsManager
 from streamlit_components.dataframe import show_dataframe
 from mftools_wrapper import MFScheme
 
-def func(invest_manager_obj : MyInvestmentsManager):
+def show_all_investments(invest_manager_obj : MyInvestmentsManager):
     all_investments = pd.DataFrame(invest_manager_obj.load_data())
+    if all_investments.empty:
+        st.info("No investments found.")
+        return
     df = (
         all_investments
         .groupby(["scheme_code", "scheme_name"])
@@ -44,10 +47,7 @@ def func(invest_manager_obj : MyInvestmentsManager):
 
 def main():
     invest_manager = MyInvestmentsManager()
-
-
-
-    func(invest_manager)
+    show_all_investments(invest_manager)
 
 
 

@@ -99,7 +99,7 @@ def show_all_investments(invest_manager_obj : MyInvestmentsManager):
     st.subheader("My Investments")
     all_investments = pd.DataFrame(invest_manager_obj.load_data())
     if all_investments.empty:
-        st.write("No investments found.")
+        st.info("No investments found.")
         return
 
     show_dataframe(all_investments)

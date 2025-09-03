@@ -296,7 +296,6 @@ class MFSimulator:
     @staticmethod
     def calculate_xirr(cashflows):
         """Calculate XIRR from self.cashflows (list of (date, amount) tuples)."""
-        print(cashflows)
         if not cashflows:
             return 0.0
         try:
