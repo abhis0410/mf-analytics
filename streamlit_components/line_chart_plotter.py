@@ -20,6 +20,7 @@ class LineChartPlotter:
 
     def _preprocess(self, value_cols=None, start_date=None, end_date=None) -> pd.DataFrame:
         df = self.df.copy()
+        df["Weekday"] = df["Date"].dt.strftime("%A")
         if start_date:
             df = df[df["Date"] >= start_date]
         if end_date:
@@ -76,7 +77,7 @@ class LineChartPlotter:
                     title=None           # optional: removes legend title
                 )
             ),
-            tooltip=["Date:T", "Metric:N", alt.Tooltip("Value:Q", format=".2f")]
+            tooltip=["Date:T", "Weekday:N", "Metric:N", alt.Tooltip("Value:Q", format=".2f")]
         ).properties(
             width=1500,
             height=400,
