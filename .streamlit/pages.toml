@@ -45,4 +45,9 @@ path = "pages/investments/my_investments.py"
 name = "My Investments"
 icon = "📂"
 
+[[pages]]
+path = "pages/investments/all_investments.py"
+name = "All Investments"
+icon = "🌐"
+
 
