@@ -32,7 +32,7 @@ class LineChartPlotter:
         ]
 
         return df.melt(
-            id_vars="Date",
+            id_vars=["Date", "Weekday"],
             value_vars=value_cols,
             var_name="Metric",
             value_name="Value"
