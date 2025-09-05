@@ -24,8 +24,9 @@ It helps you analyze, visualize, and manage your mutual fund investments in an i
 Fork this repository or clone it to your local machine:
 ```bash
 git clone https://github.com/your-username/mf-analytics.git
+```
 
-## ⚙️ Configuration
+## 2. Add Configuration
 
 This project uses **Streamlit secrets** for secure configuration.
 
@@ -49,6 +50,11 @@ service_account_json = """{
   "client_x509_cert_url": "",
   "universe_domain": "googleapis.com"
 }"""
+
+> ⚠️ **NOTE:**  
+> - Make sure to follow the **exact JSON pattern** shown above.  
+> - **Do not push** your `secrets.toml` file to GitHub (it contains sensitive credentials).  
+
 
 # 3. When deploying on Streamlit Cloud:
 App → Settings → Secrets
