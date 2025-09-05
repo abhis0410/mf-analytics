@@ -36,6 +36,7 @@ This project uses **Streamlit secrets** for secure configuration.
 ```
 
 # 2. Add your service account credentials:
+```bash
 [gcs]
 service_account_json = """{
   "type": "service_account",
@@ -50,6 +51,8 @@ service_account_json = """{
   "client_x509_cert_url": "",
   "universe_domain": "googleapis.com"
 }"""
+```
+
 
 > ⚠️ **NOTE:**  
 > - Make sure to follow the **exact JSON pattern** shown above.  
