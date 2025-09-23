@@ -10,3 +10,4 @@ pyxirr
 st-pages
 plotly
 google-cloud-storage
+deprecated
